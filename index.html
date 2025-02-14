@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL CLOCK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #b58022;
+            /* direction,color1,color2...link--- */
+        }
+
+        #clock>div {
+            padding: 30px;
+            margin: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            box-shadow: 5px 5px 23px #7b5717, -5px -5px 23px #ffc535;
+        }
+
+        span {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="clock">
+        <div id="hours">13</div>
+        <span>:</span>
+        <div id="minutes">13</div>
+        <span>:</span>
+        <div id="seconds">13</div>
+        <div id="half">PM</div>
+    </div>
+
+</body>
+<script>
+
+
+    setInterval(() => {
+        let hour = document.getElementById("hours")
+        let min = document.getElementById("minutes")
+        let sec = document.getElementById("seconds")
+        let half = document.getElementById("half")
+
+        let h=new Date().getHours()
+        let m=new Date().getMinutes()
+        let s=new Date().getSeconds()
+
+        if(h>=12)
+        {
+            half.innerText="PM"
+        }
+        else
+        {
+            half.innerText="AM"
+        }
+
+        if(h>12)
+        {
+            h-=12
+        }
+
+        if(h<10)
+        {
+            h="0"+h
+        }
+        else
+        {
+            h
+        }
+
+        if(m<10)
+        {
+            m="0"+m
+        }
+        else
+        {
+            m
+        }
+
+        if(s<10)
+        {
+            s="0"+s
+        }
+        else
+        {
+            s
+        }
+
+        hour.innerHTML=h
+        min.innerHTML=m
+        sec.innerHTML=s
+
+    }, 1000)
+</script>
+
+</html>
